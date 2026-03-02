@@ -1,4 +1,4 @@
-## Web Audio Touch Unlock
+## Web Audio Unlock
 
 ### Unlocking Web Audio - the smarter way
 
@@ -8,12 +8,13 @@ This method fixes the issue without you even having to think about it, you just 
 
 You can read more about the issue and how this method handles it in [this article](https://medium.com/@pgoloskokovic/unlocking-web-audio-the-smarter-way-8858218c0e09). 
 
-Try it out [here](https://pavle-goloskokovic.github.io/web-audio-touch-unlock-example/).
+[//]: # (TODO example repo)
+Try it out [here](https://pavle-goloskokovic.github.io/web-audio-unlock-example/).
 
 ## Installation
 
 ```bash
-npm install web-audio-touch-unlock --save
+npm install web-audio-unlock --save
 ```
 
 ## Usage
@@ -21,11 +22,11 @@ npm install web-audio-touch-unlock --save
 ### JavaScript
 
 ```javascript
-var webAudioTouchUnlock = require('web-audio-touch-unlock');
+var webAudioUnlock = require('web-audio-unlock');
 
 var context = new (window.AudioContext || window.webkitAudioContext)();
 
-webAudioTouchUnlock(context)
+webAudioUnlock(context)
     .then(function (unlocked) {
         if(unlocked) {
             // AudioContext was unlocked from an explicit user action, sound should start playing now
@@ -51,11 +52,11 @@ source.start();
 ### TypeScript
 
 ```typescript
-import webAudioTouchUnlock from 'web-audio-touch-unlock';
+import webAudioUnlock from 'web-audio-unlock';
 
 let context = new (window.AudioContext || window.webkitAudioContext)();
 
-webAudioTouchUnlock(context)
+webAudioUnlock(context)
     .then((unlocked: boolean) => {
         if(unlocked) {
             // AudioContext was unlocked from an explicit user action, sound should start playing now

@@ -1,10 +1,10 @@
-export default function webAudioTouchUnlock (context: AudioContext)
+export default function webAudioUnlock (context: AudioContext)
 {
     return new Promise <boolean>((resolve, reject) =>
     {
         if (!context || !(context instanceof ((<any>window).AudioContext || (<any>window).webkitAudioContext)))
         {
-            reject('WebAudioTouchUnlock: You need to pass an instance of AudioContext to this method call');
+            reject('webAudioUnlock: You need to pass an instance of AudioContext to this method call');
             return;
         }
 

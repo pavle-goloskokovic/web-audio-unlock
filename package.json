@@ -1,41 +1,40 @@
 {
-  "name": "web-audio-touch-unlock",
-  "version": "1.0.1",
-  "description": "Unlocking Web Audio - the smarter way",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "scripts": {
-    "prepublish": "npm run build",
-    "build": "tsc",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/pavle-goloskokovic/web-audio-touch-unlock.git"
-  },
-  "keywords": [
-    "web",
-    "audio",
-    "webaudio",
-    "unlock",
-    "touch",
-    "mobile",
-    "ios",
-    "android",
-    "ipad",
-    "iphone",
-    "apple",
-    "javascript",
-    "html5",
-    "typescript"
-  ],
-  "author": "Pavle Goloskokovic <pgoloskokovic@gmail.com> (http://prunegames.com)",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/pavle-goloskokovic/web-audio-touch-unlock/issues"
-  },
-  "homepage": "https://github.com/pavle-goloskokovic/web-audio-touch-unlock#readme",
-  "devDependencies": {
-    "typescript": "^2.6.1"
-  }
+    "name": "web-audio-unlock",
+    "version": "0.1.0",
+    "description": "Unlocking Web Audio - the smarter way",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "scripts": {
+        "prepublish": "npm run build",
+        "build": "tsc"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/pavle-goloskokovic/web-audio-unlock.git"
+    },
+    "keywords": [
+        "web",
+        "audio",
+        "webaudio",
+        "unlock",
+        "touch",
+        "mobile",
+        "ios",
+        "android",
+        "ipad",
+        "iphone",
+        "apple",
+        "javascript",
+        "html5",
+        "typescript"
+    ],
+    "author": "Pavle Goloskokovic <pgoloskokovic@gmail.com> (http://prunegames.com)",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/pavle-goloskokovic/web-audio-unlock/issues"
+    },
+    "homepage": "https://github.com/pavle-goloskokovic/web-audio-unlock#readme",
+    "devDependencies": {
+        "typescript": "^5.9.3"
+    }
 }
