@@ -13,8 +13,10 @@ const LISTENER_OPTIONS = { capture: true, passive: true };
 
 function isValidAudioContext (context: AudioContext): boolean
 {
-    const AudioContextConstructor = window.AudioContext || (<any>window).webkitAudioContext;
-    return !!AudioContextConstructor && context instanceof AudioContextConstructor;
+    return !!context
+        && typeof context.resume === 'function'
+        && typeof context.createBufferSource === 'function'
+        && typeof context.state === 'string';
 }
 
 function createUnlockSound (context: AudioContext): void
@@ -44,7 +46,7 @@ export default function webAudioUnlock (context: AudioContext)
     {
         if (!context || !isValidAudioContext(context))
         {
-            reject(new Error('webAudioUnlock: You need to pass an instance of AudioContext to this method call'));
+            reject(new Error('webAudioUnlock: invalid AudioContext'));
             return;
         }
 
@@ -60,9 +62,9 @@ export default function webAudioUnlock (context: AudioContext)
             const method = operation + 'EventListener' as
                 'addEventListener' | 'removeEventListener';
 
-            for (const eventName of USER_INPUT_EVENTS)
+            for (let i = 0; i < USER_INPUT_EVENTS.length; i++)
             {
-                document[method](eventName, unlock, LISTENER_OPTIONS);
+                document[method](USER_INPUT_EVENTS[i], unlock, LISTENER_OPTIONS);
             }
         };
 

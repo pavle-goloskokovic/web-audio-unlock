@@ -2,11 +2,17 @@
     "name": "web-audio-unlock",
     "version": "0.1.0",
     "description": "Unlocking Web Audio - the smarter way",
-    "main": "dist/index.js",
-    "module": "dist/index.mjs",
+    "main": "dist/index.min.js",
+    "module": "dist/index.min.mjs",
     "types": "dist/index.d.ts",
     "exports": {
         ".": {
+            "types": "./dist/index.d.ts",
+            "import": "./dist/index.min.mjs",
+            "require": "./dist/index.min.js",
+            "default": "./dist/index.min.mjs"
+        },
+        "./unminified": {
             "types": "./dist/index.d.ts",
             "import": "./dist/index.mjs",
             "require": "./dist/index.js",
@@ -18,7 +24,7 @@
     ],
     "sideEffects": false,
     "scripts": {
-        "build": "tsup src/index.ts --format cjs,esm --dts --clean",
+        "build": "tsup --config tsup.config.ts",
         "typecheck": "tsc --noEmit",
         "prepublishOnly": "npm run build"
     },

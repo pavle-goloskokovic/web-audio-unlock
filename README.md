@@ -8,7 +8,6 @@ This method fixes the issue without you even having to think about it, you just 
 
 You can read more about the issue and how this method handles it in [this article](https://medium.com/@pgoloskokovic/unlocking-web-audio-the-smarter-way-8858218c0e09).
 
-[//]: # (TODO example repo)
 Try it out [here](https://pavle-goloskokovic.github.io/web-audio-unlock-example/).
 
 ## Installation
@@ -20,6 +19,12 @@ npm install web-audio-unlock --save
 ## Usage
 
 Supports both ESM (`import`) and CommonJS (`require`) consumers.
+
+The default package entry is minified for smaller production bundles.
+If you specifically want the unminified build, use:
+
+- ESM: `import webAudioUnlock from 'web-audio-unlock/unminified'`
+- CJS: `const webAudioUnlock = require('web-audio-unlock/unminified')`
 
 ### JavaScript
 

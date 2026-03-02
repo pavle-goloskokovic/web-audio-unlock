@@ -1,11 +1,4 @@
 "use strict";
-function _instanceof(left, right) {
-    if (right != null && typeof Symbol !== "undefined" && right[Symbol.hasInstance]) {
-        return !!right[Symbol.hasInstance](left);
-    } else {
-        return left instanceof right;
-    }
-}
 function _type_of(obj) {
     "@swc/helpers - typeof";
     return obj && typeof Symbol !== "undefined" && obj.constructor === Symbol ? "symbol" : typeof obj;
@@ -79,8 +72,7 @@ var LISTENER_OPTIONS = {
     passive: true
 };
 function isValidAudioContext(context) {
-    var AudioContextConstructor = window.AudioContext || window.webkitAudioContext;
-    return !!AudioContextConstructor && _instanceof(context, AudioContextConstructor);
+    return !!context && typeof context.resume === "function" && typeof context.createBufferSource === "function" && typeof context.state === "string";
 }
 function createUnlockSound(context) {
     var source = context.createBufferSource();
@@ -98,7 +90,7 @@ function createUnlockSound(context) {
 function webAudioUnlock(context) {
     return new Promise(function(resolve, reject) {
         if (!context || !isValidAudioContext(context)) {
-            reject(new Error("webAudioUnlock: You need to pass an instance of AudioContext to this method call"));
+            reject(new Error("webAudioUnlock: invalid AudioContext"));
             return;
         }
         if (context.state === "running") {
@@ -107,25 +99,8 @@ function webAudioUnlock(context) {
         }
         var toggleListeners = function toggleListeners(operation) {
             var method = operation + "EventListener";
-            var _iteratorNormalCompletion = true, _didIteratorError = false, _iteratorError = undefined;
-            try {
-                for(var _iterator = USER_INPUT_EVENTS[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true){
-                    var eventName = _step.value;
-                    document[method](eventName, unlock, LISTENER_OPTIONS);
-                }
-            } catch (err) {
-                _didIteratorError = true;
-                _iteratorError = err;
-            } finally{
-                try {
-                    if (!_iteratorNormalCompletion && _iterator.return != null) {
-                        _iterator.return();
-                    }
-                } finally{
-                    if (_didIteratorError) {
-                        throw _iteratorError;
-                    }
-                }
+            for(var i = 0; i < USER_INPUT_EVENTS.length; i++){
+                document[method](USER_INPUT_EVENTS[i], unlock, LISTENER_OPTIONS);
             }
         };
         var isUnlocking = false;
