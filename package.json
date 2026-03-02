@@ -1,6 +1,6 @@
 {
     "name": "web-audio-unlock",
-    "version": "0.1.0",
+    "version": "1.0.0",
     "description": "Unlocking Web Audio - the smarter way",
     "main": "dist/index.min.js",
     "module": "dist/index.min.mjs",
