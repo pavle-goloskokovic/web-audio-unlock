@@ -2,9 +2,9 @@
 
 ### Unlocking Web Audio - the smarter way
 
-On iOS, the Web Audio API requires sounds to be triggered from an explicit user action, such as a tap, before any sound can be played on a webpage.
+In modern browsers, the Web Audio API requires sounds to be triggered from a trusted user gesture before any sound can be played on a webpage.
 
-This method fixes the issue without you even having to think about it, you just pass your `AudioContext` instance to it and you're good to go!
+This method fixes the issue without you even having to think about it, you just pass your `AudioContext` instance to it, and you're good to go!
 
 You can read more about the issue and how this method handles it in [this article](https://medium.com/@pgoloskokovic/unlocking-web-audio-the-smarter-way-8858218c0e09).
 
@@ -31,11 +31,11 @@ webAudioUnlock(context)
     {
         if (unlocked)
         {
-            // AudioContext was unlocked from an explicit user action, sound should start playing now
+            // AudioContext was unlocked from a trusted user gesture, sound should start playing now
         }
         else
         {
-            // There was no need for unlocking, devices other than iOS
+            // AudioContext was already running, no unlock was needed
         }
     },
     function (reason)
@@ -67,11 +67,11 @@ webAudioUnlock(context)
     {
         if (unlocked)
         {
-            // AudioContext was unlocked from an explicit user action, sound should start playing now
+            // AudioContext was unlocked from a trusted user gesture, sound should start playing now
         }
         else
         {
-            // There was no need for unlocking, devices other than iOS
+            // AudioContext was already running, no unlock was needed
         }
     },
     (reason: Error) =>
