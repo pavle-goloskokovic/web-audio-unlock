@@ -19,6 +19,8 @@ npm install web-audio-unlock --save
 
 ## Usage
 
+Supports both ESM (`import`) and CommonJS (`require`) consumers.
+
 ### JavaScript
 
 ```javascript

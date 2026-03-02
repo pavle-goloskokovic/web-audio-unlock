@@ -3,10 +3,24 @@
     "version": "0.1.0",
     "description": "Unlocking Web Audio - the smarter way",
     "main": "dist/index.js",
+    "module": "dist/index.mjs",
     "types": "dist/index.d.ts",
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "import": "./dist/index.mjs",
+            "require": "./dist/index.js",
+            "default": "./dist/index.mjs"
+        }
+    },
+    "files": [
+        "dist"
+    ],
+    "sideEffects": false,
     "scripts": {
-        "prepublish": "npm run build",
-        "build": "tsc"
+        "build": "tsup src/index.ts --format cjs,esm --dts --clean",
+        "typecheck": "tsc --noEmit",
+        "prepublishOnly": "npm run build"
     },
     "repository": {
         "type": "git",
@@ -34,8 +48,10 @@
     "devDependencies": {
         "@eslint/js": "^10.0.1",
         "@stylistic/eslint-plugin": "^5.9.0",
+        "@swc/core": "^1.15.18",
         "eslint": "^10.0.2",
         "globals": "^17.4.0",
+        "tsup": "^8.5.1",
         "typescript": "^5.9.3",
         "typescript-eslint": "^8.56.1"
     }
