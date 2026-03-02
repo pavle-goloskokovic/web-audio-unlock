@@ -4,25 +4,25 @@ export default function webAudioUnlock (context: AudioContext)
     {
         if (!context || !(context instanceof ((<any>window).AudioContext || (<any>window).webkitAudioContext)))
         {
-            reject('webAudioUnlock: You need to pass an instance of AudioContext to this method call');
+            reject(new Error('webAudioUnlock: You need to pass an instance of AudioContext to this method call'));
             return;
         }
 
         if (context.state === 'suspended' && 'ontouchstart' in window)
         {
-            let unlock = () =>
+            const unlock = () =>
             {
                 context.resume().then(()=>
-                    {
-                        document.body.removeEventListener('touchstart', unlock);
-                        document.body.removeEventListener('touchend', unlock);
+                {
+                    document.body.removeEventListener('touchstart', unlock);
+                    document.body.removeEventListener('touchend', unlock);
 
-                        resolve(true);
-                    },
-                    (reason)=>
-                    {
-                        reject(reason);
-                    }
+                    resolve(true);
+                },
+                (reason: Error)=>
+                {
+                    reject(reason);
+                }
                 );
             };
 
