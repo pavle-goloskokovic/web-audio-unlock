@@ -45,7 +45,7 @@
         "html5",
         "typescript"
     ],
-    "author": "Pavle Goloskokovic <pgoloskokovic@gmail.com> (http://prunegames.com)",
+    "author": "Pavle Goloskokovic <pgoloskokovic@gmail.com> (https://prunegames.com)",
     "license": "MIT",
     "bugs": {
         "url": "https://github.com/pavle-goloskokovic/web-audio-unlock/issues"

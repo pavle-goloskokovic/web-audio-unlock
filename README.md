@@ -1,6 +1,6 @@
 ## Web Audio Unlock
 
-### Unlocking Web Audio - the smarter way
+### 🔊🔓 Unlocking Web Audio - the smarter way
 
 In modern browsers, the Web Audio API requires sounds to be triggered from a trusted user gesture before any sound can be played on a webpage.
 
